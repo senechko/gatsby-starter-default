@@ -10,12 +10,12 @@ let repoUrl = "";
 
 if (searchParams) {
   repoUrl = searchParams.get("repoUrl");
-  var lastSlash = repoUrl.lastIndexOf("/");
-  if (lastSlash != -1) {
-    name = repoUrl.substr(
-      lastSlash + 1,
-      repoUrl.lastIndexOf(".") - (lastSlash + 1)
-    );
+  if (repoUrl) {
+    var lastSlash = repoUrl.lastIndexOf("/");
+    var lastDot = repoUrl.lastIndexOf(".");
+    if (lastSlash != -1 && lastDot != -1) {
+      name = repoUrl.substr(lastSlash + 1, lastDot - (lastSlash + 1));
+    }
   }
 }
 
