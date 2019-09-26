@@ -1,10 +1,17 @@
 import React from "react";
 
-const searchParams = new URLSearchParams(window.location.search);
+const searchParams =
+  typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search)
+    : null;
+let name = "";
+if (searchParams) {
+  name = searchParams.get("name");
+}
 
 export default class Form extends React.Component {
   state = {
-    name: searchParams.get("name"),
+    name: name,
   };
 
   handleSubmit = event => {
@@ -36,7 +43,7 @@ export default class Form extends React.Component {
           />
           <span>.westegg.io</span>
         </div>
-        <input type="image" src="/icons/button_deploy-to-digitalocean.png" />
+        <input type="image" src="/button_deploy-to-digitalocean.png" />
       </form>
     );
   }

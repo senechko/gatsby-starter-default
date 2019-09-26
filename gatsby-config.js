@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Welcome to DigitalOcean!`,
     description: `Get your Gatsby site in 1 min`,
-    author: `@gatsbyjs`,
+    author: `@digitalocean`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -31,4 +31,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

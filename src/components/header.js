@@ -19,7 +19,7 @@ const Header = ({ siteTitle }) => (
     >
       <h1 style={{ margin: 0 }}>
         <img
-          src="/icons/DO_Logo_icon_white.png"
+          src="/DO_Logo_icon_white.png"
           height="60"
           width="60"
           alt="DigitalOcean Logo"
