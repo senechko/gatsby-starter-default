@@ -10,11 +10,11 @@ let repoUrl = "";
 
 if (searchParams) {
   repoUrl = searchParams.get("repoUrl");
-  var lastSlash = name.lastIndexOf("/");
+  var lastSlash = repoUrl.lastIndexOf("/");
   if (lastSlash != -1) {
     name = repoUrl.substr(
       lastSlash + 1,
-      name.lastIndexOf(".") - (lastSlash + 1)
+      repoUrl.lastIndexOf(".") - (lastSlash + 1)
     );
   }
 }
@@ -43,7 +43,7 @@ export default class Form extends React.Component {
   render() {
     return (
       <>
-        <div>Deploying: {this.state.name}</div>
+        <div>Deploying: {this.state.repoUrl}</div>
         <form onSubmit={this.handleSubmit} action="/deploy">
           <input type="hidden" name="repo_url" value="{this.state.repoUrl}" />
           <div>
@@ -52,7 +52,7 @@ export default class Form extends React.Component {
               type="text"
               name="name"
               onChange={this.handleInputChange}
-              value={this.state.appName}
+              value={this.state.name}
               width="60"
             />
             <span>.westegg.io</span>
