@@ -5,14 +5,14 @@ const searchParams =
     ? new URLSearchParams(window.location.search)
     : null;
 
-let appName = "Random-" + new Date().getTime();
-let name = "";
+let name = "Random-" + new Date().getTime();
+let repoUrl = "";
 
 if (searchParams) {
-  name = searchParams.get("name");
+  repoUrl = searchParams.get("repoUrl");
   var lastSlash = name.lastIndexOf("/");
   if (lastSlash != -1) {
-    appName = name.substr(
+    name = repoUrl.substr(
       lastSlash + 1,
       name.lastIndexOf(".") - (lastSlash + 1)
     );
@@ -22,7 +22,7 @@ if (searchParams) {
 export default class Form extends React.Component {
   state = {
     name: name,
-    appName: appName,
+    repoUrl: repoUrl,
   };
 
   handleSubmit = event => {
@@ -45,6 +45,7 @@ export default class Form extends React.Component {
       <>
         <div>Deploying: {this.state.name}</div>
         <form onSubmit={this.handleSubmit} action="/deploy">
+          <input type="hidden" name="repo_url" value="{this.state.repoUrl}" />
           <div>
             <label>Site name</label>
             <input
