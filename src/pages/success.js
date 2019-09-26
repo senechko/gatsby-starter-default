@@ -18,7 +18,7 @@ const SecondPage = () => (
     <SEO title="Your app is Deploying" />
     <h1>Your site is deployed!</h1>
     <h2>
-      Visit here: <a href="{url}">{url}</a>
+      Visit here: <a href={url}>{url}</a>
     </h2>
   </Layout>
 );
