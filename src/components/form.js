@@ -47,7 +47,7 @@ export default class Form extends React.Component {
         <form
           onSubmit={this.handleSubmit}
           method="POST"
-          action="https://api.westegg.io/sites"
+          action="https://westegg.io/sites"
         >
           <input type="hidden" name="repo_url" value={this.state.repoUrl} />
           <div>
