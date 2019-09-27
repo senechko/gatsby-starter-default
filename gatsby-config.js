@@ -1,4 +1,5 @@
 module.exports = {
+  assetPrefix: process.env.GATSBY_ASSET_PREFIX || "/",
   siteMetadata: {
     title: `Welcome to DigitalOcean!`,
     description: `Get your Gatsby site in 1 min`,
