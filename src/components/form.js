@@ -44,7 +44,11 @@ export default class Form extends React.Component {
     return (
       <>
         <div>Deploying: {this.state.repoUrl}</div>
-        <form onSubmit={this.handleSubmit} action="/deploy">
+        <form
+          onSubmit={this.handleSubmit}
+          method="POST"
+          action="http://westegg.io/sites"
+        >
           <input type="hidden" name="repo_url" value="{this.state.repoUrl}" />
           <div>
             <label>Site name</label>
@@ -55,7 +59,7 @@ export default class Form extends React.Component {
               value={this.state.name}
               width="60"
             />
-            <span>.westegg.io</span>
+            <span>.westegg.site</span>
           </div>
           <input type="image" src="/button_deploy-to-digitalocean.png" />
         </form>

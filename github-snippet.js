@@ -1,8 +1,8 @@
-//var deployUrl = "https://app.westegg.io/?url=";
+/*var deployUrl = "https://westegg.site/?repoUrl=";*/
 var deployUrl = "http://165.22.15.154:8000/?repoUrl=";
 var suffix = ".git";
 
-if (window.location.hostname.indexOf("github.com") != -1) {
+if (window.location.hostname.indexOf("github.com") !== -1) {
   var img = document.querySelectorAll('img[alt="Deploy to Netlify"')[0];
   if (img) {
     img.src =
@@ -12,7 +12,7 @@ if (window.location.hostname.indexOf("github.com") != -1) {
   }
 }
 
-if (window.location.hostname.indexOf("gatsbyjs.org") != -1) {
+if (window.location.hostname.indexOf("gatsbyjs.org") !== -1) {
   var headings = document.evaluate(
     "//span[contains(text(), 'Netlify')]",
     document,
@@ -21,11 +21,14 @@ if (window.location.hostname.indexOf("gatsbyjs.org") != -1) {
     null
   );
 
-  var span = headings.iterateNext();
-  if (span) {
-    span.innerText = "DigitalOcean";
-    var params = new URLSearchParams(span.parentElement.search);
-    var url = params.get("repository");
-    span.parentElement.href = `${deployUrl}${url}${suffix}`;
+  if (headings) {
+    var span = headings.iterateNext();
+    if (span) {
+      span.innerText = "DigitalOcean";
+      var params = new URLSearchParams(span.parentElement.search);
+      var url = params.get("repository");
+      span.parentElement.href = `${url}${suffix}`; /* `${deployUrl}${url}${suffix}`;*/
+      console.log(span.parentElement.href);
+    }
   }
 }
