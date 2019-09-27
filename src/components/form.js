@@ -49,7 +49,7 @@ export default class Form extends React.Component {
           method="POST"
           action="https://westegg.site/sites"
         >
-          <input type="hidden" name="repo_url" value="{this.state.repoUrl}" />
+          <input type="hidden" name="repo_url" value={this.state.repoUrl} />
           <div>
             <label>Site name</label>
             <input
